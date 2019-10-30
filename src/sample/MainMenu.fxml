@@ -12,19 +12,19 @@
                 <Image url="@Resources/Main_BG.jpg" />
             </image>
         </ImageView>
-        <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
+        <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="500.0" onMouseClicked="#NewGame" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
             <effect><InnerShadow choke ="0.5" height ="30.0" width ="30.0" /></effect>
             <image>
                 <Image url="@Resources/NewGame.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="100.0" fitWidth="350.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
+        <ImageView fitHeight="100.0" fitWidth="350.0" layoutX="25.0" layoutY="25.0" onMouseClicked="#LeaderBoard" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
             <effect><InnerShadow choke ="0.5" height ="30.0" width ="30.0" /></effect>
             <image>
                 <Image url="@Resources/LeaderBoard.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="100.0" fitWidth="250.0" layoutX="25.0" layoutY="800.0" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
+        <ImageView fitHeight="100.0" fitWidth="250.0" layoutX="25.0" layoutY="800.0" onMouseClicked="#Help" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
             <effect><InnerShadow choke ="0.5" height ="30.0" width ="30.0" /></effect>
             <image>
                 <Image url="@Resources/Help.png" />
@@ -36,7 +36,7 @@
                 <Image url="@Resources/Exit.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
+        <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="650.0" onMouseClicked="#LoadGame" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
             <effect><InnerShadow choke ="0.5" height ="30.0" width ="30.0" /></effect>
             <image>
                 <Image url="@Resources/LoadGame.png" />
