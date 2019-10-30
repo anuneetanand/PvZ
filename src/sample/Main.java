@@ -11,37 +11,28 @@ import javafx.stage.Stage;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.StageStyle;
 
+import java.io.IOException;
+
 public class Main extends Application
 {
     private static Stage stage;
-    private static Parent root_Main_Menu;
-    private static Parent root_Game;
-    private static Parent root_PauseMenu;
-    private static Parent root_LeaderBoard;
-    private static Parent root_Help;
-    private static Parent root;
     @Override
-    public void start(Stage primaryStage) throws Exception
+    public void start(Stage primaryStage) throws  IOException
     {
         stage = primaryStage;
-        Parent root_Main_Menu = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-        Parent root_Game = FXMLLoader.load(getClass().getResource("GAME.fxml"));
-        Parent root_PauseMenu = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
-        Parent root_LeaderBoard = FXMLLoader.load(getClass().getResource("LeaderBoard.fxml"));
-        Parent root_Help = FXMLLoader.load(getClass().getResource("Help.fxml"));
-        root = root_Main_Menu;
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("MainMenu.fxml"))));
         stage.setFullScreen(true);
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("MainMenu.fxml"))));
         stage.show();
         stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {if (KeyCode.ESCAPE == event.getCode()) {primaryStage.close();}});
     }
-    public static void setRoot_Main_Menu() { root = root_Main_Menu; stage.setScene(new Scene(root));}
-    public static void setRoot_Game() { root = root_Game; }
-    public static void setRoot_PauseMenu() { root = root_PauseMenu; stage.setScene(new Scene(root));}
-    public static void setRoot_LeaderBoard() { root = root_LeaderBoard; stage.setScene(new Scene(root));}
-    public static void setRoot_Help() { root = root_Help; stage.setScene(new Scene(root));}
+    public static void setRoot_Main_Menu() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("MainMenu.fxml")))); stage.show();}
+    public static void setRoot_Game() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Game.fxml")))); stage.show();}
+    public static void setRoot_PauseMenu() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("PauseMenu.fxml")))); stage.show();}
+    public static void  setRoot_LeaderBoard() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LeaderBoard.fxml")))); stage.show();}
+    public static void setRoot_Help() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Help.fxml")))); stage.show();}
     public static void setStage(Stage stage) { Main.stage = stage; }
     public static Stage getStage() { return stage; }
     public static void main(String[] args) { launch(args); }
