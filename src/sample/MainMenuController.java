@@ -1,7 +1,6 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.MediaPlayer;
 

@@ -1,46 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenuController">
-    <children>
-        <ImageView fitHeight="900.0" fitWidth="1440.0" nodeOrientation="INHERIT" pickOnBounds="true">
-            <image>
-                <Image url="@Resources/Main_BG.jpg" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="500.0" onMouseClicked="#NewGame" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
-            <effect><InnerShadow choke ="0.5" height ="30.0" width ="30.0" /></effect>
-            <image>
-                <Image url="@Resources/NewGame.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="100.0" fitWidth="350.0" layoutX="25.0" layoutY="25.0" onMouseClicked="#LeaderBoard" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
-            <effect><InnerShadow choke ="0.5" height ="30.0" width ="30.0" /></effect>
-            <image>
-                <Image url="@Resources/LeaderBoard.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="100.0" fitWidth="250.0" layoutX="25.0" layoutY="800.0" onMouseClicked="#Help" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
-            <effect><InnerShadow choke ="0.5" height ="30.0" width ="30.0" /></effect>
-            <image>
-                <Image url="@Resources/Help.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="800.0" onMouseClicked="#Exit" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
-            <effect><InnerShadow choke ="0.5" height ="30.0" width ="30.0" /></effect>
-            <image>
-                <Image url="@Resources/Exit.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="650.0" onMouseClicked="#LoadGame" pickOnBounds="true" preserveRatio="true" onMouseMoved="#Glow"  onMouseExited="#RemoveGlow">
-            <effect><InnerShadow choke ="0.5" height ="30.0" width ="30.0" /></effect>
-            <image>
-                <Image url="@Resources/LoadGame.png" />
-            </image>
-        </ImageView>
-    </children>
-</AnchorPane>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenuController">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0">
+          <children>
+              <ImageView fitHeight="900.0" fitWidth="1440.0" nodeOrientation="INHERIT" pickOnBounds="true">
+                  <image>
+                      <Image url="@Resources/Main_BG.jpg" />
+                  </image>
+              </ImageView>
+              <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="500.0" onMouseClicked="#NewGame" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
+                  <effect>
+                  <InnerShadow choke="0.5" height="30.0" width="30.0" />
+               </effect>
+                  <image>
+                      <Image url="@Resources/NewGame.png" />
+                  </image>
+              </ImageView>
+              <ImageView fitHeight="100.0" fitWidth="350.0" layoutX="25.0" layoutY="25.0" onMouseClicked="#LeaderBoard" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
+                  <effect>
+                  <InnerShadow choke="0.5" height="30.0" width="30.0" />
+               </effect>
+                  <image>
+                      <Image url="@Resources/LeaderBoard.png" />
+                  </image>
+              </ImageView>
+              <ImageView fitHeight="100.0" fitWidth="250.0" layoutX="25.0" layoutY="800.0" onMouseClicked="#Help" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
+                  <effect>
+                  <InnerShadow choke="0.5" height="30.0" width="30.0" />
+               </effect>
+                  <image>
+                      <Image url="@Resources/Help.png" />
+                  </image>
+              </ImageView>
+              <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="800.0" onMouseClicked="#Exit" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
+                  <effect>
+                  <InnerShadow choke="0.5" height="30.0" width="30.0" />
+               </effect>
+                  <image>
+                      <Image url="@Resources/Exit.png" />
+                  </image>
+              </ImageView>
+              <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="1050.0" layoutY="650.0" onMouseClicked="#LoadGame" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
+                  <effect>
+                  <InnerShadow choke="0.5" height="30.0" width="30.0" />
+               </effect>
+                  <image>
+                      <Image url="@Resources/LoadGame.png" />
+                  </image>
+              </ImageView>
+          </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

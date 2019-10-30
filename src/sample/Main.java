@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.StageStyle;
 
 public class Main extends Application
 {
@@ -31,6 +32,8 @@ public class Main extends Application
         root = root_Main_Menu;
         stage.setScene(new Scene(root));
         stage.setFullScreen(true);
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
         stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {if (KeyCode.ESCAPE == event.getCode()) {primaryStage.close();}});
     }
