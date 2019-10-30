@@ -15,16 +15,16 @@ public class MainMenuController extends Click
 
     @FXML
     public void NewGame(MouseEvent mouseEvent)
-    { Main.getStage().setScene(new Scene(Main.getRoot_Game())); }
+    { Main.setRoot_Game(); }
 
     @FXML
     public void Help(MouseEvent mouseEvent)
-    { Main.getStage().setScene(new Scene(Main.getRoot_Help())); }
+    { Main.setRoot_Help(); }
 
     @FXML
     public void LeaderBoard(MouseEvent mouseEvent)
-    { Main.getStage().setScene(new Scene(Main.getRoot_LeaderBoard())); }
+    { Main.setRoot_LeaderBoard(); }
 
-    public void LoadGame(MouseEvent mouseEvent) {
-    }
+    public void LoadGame(MouseEvent mouseEvent)
+    { }
 }
