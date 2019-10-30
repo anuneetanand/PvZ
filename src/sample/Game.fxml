@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0"
+            prefWidth="1440.0" xmlns:fx ="http://javafx.com/javafx/11.0.1" fx:controller="sample.GameController">
+   <children>
+      <ImageView fitHeight="900.0" fitWidth="1440.0" pickOnBounds="true">
+         <image>
+            <Image url="@Resources/BG_Game.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutY="700.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/lawn_mower.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+         <image>
+            <Image url="@Resources/SunPanel.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/Sun.png" />
+         </image></ImageView>
+      <ImageView fitHeight="100.0" fitWidth="800.0" layoutX="150.0" pickOnBounds="true">
+         <image>
+            <Image url="@Resources/PlantPanel.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="1290.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/PauseButton.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="950.0" pickOnBounds="true">
+         <image>
+            <Image url="@Resources/ZombieBar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="220.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/pea_shooter.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
