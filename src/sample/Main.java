@@ -35,28 +35,13 @@ public class Main extends Application
 
     public Parent getRoot_Main_Menu() { return root_Main_Menu; }
     public void setRoot_Main_Menu(Parent root_Main_Menu) { this.root_Main_Menu = root_Main_Menu; }
-    public Parent getRoot_Game() {
-        return root_Game;
-    }
+    public Parent getRoot_Game() { return root_Game; }
+    public void setRoot_Game(Parent root_Game) { this.root_Game = root_Game; }
+    public Parent getRoot_PauseMenu() { return root_PauseMenu; }
+    public void setRoot_PauseMenu(Parent root_PauseMenu) { this.root_PauseMenu = root_PauseMenu; }
+    public Parent getRoot_LeaderBoard() { return root_LeaderBoard; }
 
-    public void setRoot_Game(Parent root_Game) {
-        this.root_Game = root_Game;
-    }
-
-    public Parent getRoot_PauseMenu() {
-        return root_PauseMenu;
-    }
-
-    public void setRoot_PauseMenu(Parent root_PauseMenu) {
-        this.root_PauseMenu = root_PauseMenu;
-    }
-
-    public Parent getRoot_LeaderBoard() {
-        return root_LeaderBoard;
-    }
-
-    public void setRoot_LeaderBoard(Parent root_LeaderBoard) {
-        this.root_LeaderBoard = root_LeaderBoard;
+    public void setRoot_LeaderBoard(Parent root_LeaderBoard) { this.root_LeaderBoard = root_LeaderBoard;
     }
 
     public Parent getRoot_Help() {
