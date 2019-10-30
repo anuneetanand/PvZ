@@ -1,4 +1,4 @@
 package sample;
 
-public class HelpController {
-}
+public class HelpController
+{ }

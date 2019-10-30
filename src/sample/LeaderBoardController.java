@@ -1,4 +1,4 @@
 package sample;
 
-public class LeaderBoardController {
-}
+public class LeaderBoardController
+{ }

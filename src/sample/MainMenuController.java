@@ -10,19 +10,21 @@ public class MainMenuController extends Click
     private static MediaPlayer Music;
 
     @FXML
-    public void New
     public void Exit(javafx.scene.input.MouseEvent mouseEvent)
     { System.exit(0); }
 
+    @FXML
     public void NewGame(MouseEvent mouseEvent)
-    { Main.getStage().setScene(new Scene()); }
+    { Main.getStage().setScene(new Scene(Main.getRoot_Game())); }
 
+    @FXML
     public void Help(MouseEvent mouseEvent)
-    { }
+    { Main.getStage().setScene(new Scene(Main.getRoot_Help())); }
 
+    @FXML
     public void LeaderBoard(MouseEvent mouseEvent)
-    { }
+    { Main.getStage().setScene(new Scene(Main.getRoot_LeaderBoard())); }
 
-    public void LoadGame(MouseEvent mouseEvent)
-    { }
+    public void LoadGame(MouseEvent mouseEvent) {
+    }
 }

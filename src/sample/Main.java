@@ -13,11 +13,12 @@ import javafx.scene.input.KeyEvent;
 public class Main extends Application
 {
     private static Stage stage;
-    private Parent root_Main_Menu;
-    private Parent root_Game;
-    private Parent root_PauseMenu;
-    private Parent root_LeaderBoard;
-    private Parent root_Help;
+    private static Parent root_Main_Menu;
+    private static Parent root_Game;
+    private static Parent root_PauseMenu;
+    private static Parent root_LeaderBoard;
+    private static Parent root_Help;
+    private static Parent root;
     @Override
     public void start(Stage primaryStage) throws Exception
     {
@@ -27,32 +28,18 @@ public class Main extends Application
         Parent root_PauseMenu = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
         Parent root_LeaderBoard = FXMLLoader.load(getClass().getResource("LeaderBoard.fxml"));
         Parent root_Help = FXMLLoader.load(getClass().getResource("Help.fxml"));
-        stage.setScene(new Scene(root_Main_Menu));
+        root = root_Main_Menu;
+        stage.setScene(new Scene(root));
         stage.setFullScreen(true);
         stage.show();
         stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {if (KeyCode.ESCAPE == event.getCode()) {primaryStage.close();}});
     }
-
-    public Parent getRoot_Main_Menu() { return root_Main_Menu; }
-    public void setRoot_Main_Menu(Parent root_Main_Menu) { this.root_Main_Menu = root_Main_Menu; }
-    public Parent getRoot_Game() { return root_Game; }
-    public void setRoot_Game(Parent root_Game) { this.root_Game = root_Game; }
-    public Parent getRoot_PauseMenu() { return root_PauseMenu; }
-    public void setRoot_PauseMenu(Parent root_PauseMenu) { this.root_PauseMenu = root_PauseMenu; }
-    public Parent getRoot_LeaderBoard() { return root_LeaderBoard; }
-
-    public void setRoot_LeaderBoard(Parent root_LeaderBoard) { this.root_LeaderBoard = root_LeaderBoard;
-    }
-
-    public Parent getRoot_Help() {
-        return root_Help;
-    }
-
-    public void setRoot_Help(Parent root_Help) {
-        this.root_Help = root_Help;
-    }
-
-    public static Stage getStage() { return stage; }
+    public static void setRoot_Main_Menu() { root = root_Main_Menu; stage.setScene(new Scene(root));}
+    public static void setRoot_Game() { root = root_Game; }
+    public static void setRoot_PauseMenu() { root = root_PauseMenu; stage.setScene(new Scene(root));}
+    public static void setRoot_LeaderBoard() { root = root_LeaderBoard; stage.setScene(new Scene(root));}
+    public static void setRoot_Help() { root = root_Help; stage.setScene(new Scene(root));}
     public static void setStage(Stage stage) { Main.stage = stage; }
+    public static Stage getStage() { return stage; }
     public static void main(String[] args) { launch(args); }
 }
