@@ -50,7 +50,7 @@
             <Image url="@Resources/PlantPanel.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="1290.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="1290.0" onMouseMoved="#Glow" onMouseExited="#RemoveGlow"  onMouseClicked="#Pause" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Resources/PauseButton.png" />
          </image>
