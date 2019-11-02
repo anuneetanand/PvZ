@@ -14,7 +14,7 @@ public class MainMenuController extends Click
     public void NewGame(MouseEvent mouseEvent) throws IOException { Main.setRoot_Game(); }
 
     @FXML
-    public void LoadGame(MouseEvent mouseEvent) { }
+    public void LoadGame(MouseEvent mouseEvent) throws IOException { Main.setRoot_Load(); }
 
     @FXML
     public void Help(MouseEvent mouseEvent) throws IOException { Main.setRoot_Help(); }
@@ -24,4 +24,7 @@ public class MainMenuController extends Click
 
     @FXML
     public void Exit(javafx.scene.input.MouseEvent mouseEvent) { System.exit(0); }
+
+    @FXML
+    public void LevelMenu(MouseEvent mouseEvent) throws IOException { Main.setRoot_Level(); }
 }

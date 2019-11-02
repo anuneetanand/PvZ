@@ -11,24 +11,29 @@
             <Image url="@Resources/PauseMenu.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="670.0" layoutY="700.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" onMouseClicked="#Back" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="670.0" layoutY="700.0" onMouseClicked="#Back" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Resources/BackButton.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="570.0" layoutY="200.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" onMouseClicked="#SaveGame" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="75.0" fitWidth="250.0" layoutX="595.0" layoutY="200.0" onMouseClicked="#SaveGame" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Resources/SaveGame.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="570.0" layoutY="350.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" onMouseClicked="#RestartGame" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="75.0" fitWidth="250.0" layoutX="595.0" layoutY="300.0" onMouseClicked="#RestartGame" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Resources/Restart.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="670.0" layoutY="484.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" onMouseClicked="#Music" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="670.0" layoutY="500.0" onMouseClicked="#Music" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Resources/Music.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="250.0" layoutX="595.0" layoutY="400.0" onMouseClicked="#Exit" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/ExitGame.png" />
          </image>
       </ImageView>
    </children>

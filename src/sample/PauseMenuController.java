@@ -19,4 +19,7 @@ public class PauseMenuController extends Click
 
     @FXML
     public void Back(MouseEvent mouseEvent) throws IOException { Main.setRoot_Game(); }
+
+    @FXML
+    public void Exit(javafx.scene.input.MouseEvent mouseEvent) { System.exit(0); }
 }
