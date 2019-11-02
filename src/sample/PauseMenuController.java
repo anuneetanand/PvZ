@@ -8,8 +8,12 @@ import java.io.IOException;
 public class PauseMenuController extends Click
 {
     @FXML
-    public void Music(MouseEvent mouseEvent)
-    { }
+    public void MusicSet(MouseEvent mouseEvent)
+    {
+       if (Main.MusicToggle) {Main.MusicToggle = false;}
+       else { Main.MusicToggle = true;}
+       Main.Music();
+    }
 
     @FXML
     public void RestartGame(MouseEvent mouseEvent) throws IOException { Main.setRoot_Game();}
