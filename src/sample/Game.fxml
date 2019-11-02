@@ -116,7 +116,7 @@
                   <Image url="@Resources/pea_shooter.gif" />
                </image>
             </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3">
+            <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <image>
                   <Image url="@Resources/walnut_full_life.gif" />
                </image>
@@ -138,17 +138,17 @@
             <Image url="@Resources/Bar.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="270.0" layoutY="10.0" pickOnBounds="true" onMouseExited="#RemoveGlow" onMouseMoved="#Glow">
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="270.0" layoutY="10.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
          <image>
             <Image url="@Resources/active_peashooter.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="360.0" layoutY="10.0" pickOnBounds="true" onMouseExited="#RemoveGlow" onMouseMoved="#Glow">
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="360.0" layoutY="10.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
          <image>
             <Image url="@Resources/active_sunflower.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="10.0" pickOnBounds="true" onMouseExited="#RemoveGlow" onMouseMoved="#Glow">
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="10.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
          <image>
             <Image url="@Resources/active_walnut.png" />
          </image>
@@ -173,30 +173,35 @@
             <Image url="@Resources/ShovelArea.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="150.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" onMouseExited="#RemoveGlow" onMouseMoved="#Glow">
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="150.0" layoutY="13.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Resources/shovel.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="1300.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="zombie_1" fitHeight="110.0" fitWidth="110.0" layoutX="1300.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Resources/zombie_normal.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="772.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="sun" fitHeight="60.0" fitWidth="60.0" layoutX="772.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Resources/sun.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="80.0" fitWidth="150.0" layoutX="1125.0" layoutY="5.0" pickOnBounds="true">
+      <ImageView fx:id="pea" fitHeight="20.0" fitWidth="20.0" layoutX="450.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Resources/ZombieCount.png" />
+            <Image url="@Resources/Pea.png" />
          </image>
       </ImageView>
-      <Label layoutX="1207.0" layoutY="25.0" prefHeight="40.0" prefWidth="50.0" text="30%" textFill="#ff0a0a">
-         <font>
-            <Font name="Comic Sans MS" size="24.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="950.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/ZombieBar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="zombie_head" fitHeight="50.0" fitWidth="50.0" layoutX="1200.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/ZombieHead.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
