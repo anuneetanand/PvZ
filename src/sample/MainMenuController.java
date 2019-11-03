@@ -2,14 +2,11 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.media.MediaPlayer;
 
 import java.io.IOException;
 
 public class MainMenuController extends Click
 {
-    private static MediaPlayer Music;
-
     @FXML
     public void NewGame(MouseEvent mouseEvent) throws IOException { Main.setRoot_Game(); }
 

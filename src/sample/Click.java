@@ -23,33 +23,32 @@ public class Click
             File audioFile = new File("ClickSound.mp3");
             Media Sound = new Media(audioFile.toURI().toURL().toString());
             SoundPlayer = new MediaPlayer(Sound);
-            SoundPlayer.setStartTime(new Duration(1000));
-            SoundPlayer.setStopTime(new Duration((1100)));
-            SoundPlayer.setOnEndOfMedia(() -> SoundPlayer.stop());
+            SetupSoundPlayer();
          }
         catch (MalformedURLException e)
         { System.out.println("No Audio File Found"); }
     }
 
-    private void PlayClickSound() {SoundPlayer.play();}
+    private void SetupSoundPlayer()
+    {
+        SoundPlayer.setStartTime(new Duration(1000));
+        SoundPlayer.setStopTime(new Duration((1100)));
+        SoundPlayer.setOnEndOfMedia(() -> SoundPlayer.stop());
+    }
+
+    private void PlaySound() { SoundPlayer.play(); }
 
     public void Glow(MouseEvent mouseEvent)
     {
-        if (!SoundCheck){ PlayClickSound(); SoundCheck = true;}
-        ImageView I = (ImageView) mouseEvent.getSource();
+        if (!SoundCheck){ PlaySound(); SoundCheck = true;}
         Glow G = new Glow(0.75);
-        I.setEffect(G);
+        ((ImageView) mouseEvent.getSource()).setEffect(G);
     }
 
     public void RemoveGlow(MouseEvent mouseEvent)
     {
-        ImageView I = (ImageView) mouseEvent.getSource();
-        InnerShadow IS= new InnerShadow();
-        IS.setChoke(0.5);
-        IS.setHeight(30.0);
-        IS.setRadius(10.0);
-        IS.setWidth(30.0);
-        I.setEffect(IS);
+        InnerShadow IS = new InnerShadow();
+        ((ImageView) mouseEvent.getSource()).setEffect(IS);
         SoundCheck = false;
     }
 }

@@ -1,3 +1,7 @@
+// Anuneet Anand
+// Naman Tyagi
+// AP Project
+
 package sample;
 
 import javafx.application.Application;
@@ -21,7 +25,7 @@ public class Main extends Application
     private static MediaPlayer SoundPlayer;
     public static boolean MusicToggle  = true;
 
-    public static  void LoadMusic()
+    private static  void LoadMusic()
     {
         try
         {
@@ -33,11 +37,8 @@ public class Main extends Application
         catch (MalformedURLException e)
         { System.out.println("No Audio File Found"); }
     }
-    public static void Music()
-    {
-        if (MusicToggle) {SoundPlayer.play();}
-        else {SoundPlayer.pause();}
-    }
+
+    public static void Music() { if (MusicToggle) {SoundPlayer.play();} else {SoundPlayer.pause();} }
 
     @Override
     public void start(Stage primaryStage) throws  IOException

@@ -1,13 +1,13 @@
 package sample;
 
 import javafx.animation.TranslateTransition;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import java.util.ResourceBundle;
 
 public class GameController extends Click implements Initializable

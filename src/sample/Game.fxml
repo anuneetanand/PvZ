@@ -9,199 +9,207 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameController">
-   <children>
-      <ImageView fitHeight="900.0" fitWidth="1440.0" pickOnBounds="true">
-         <image>
-            <Image url="@Resources/BG_Game.jpg" />
-         </image>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0"
+            prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.GameController">
+   <ImageView fitHeight="900.0" fitWidth="1440.0" pickOnBounds="true">
+      <Image url="@Resources/BG_Game.jpg"/>
+   </ImageView>
+   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="175.0" layoutY="125.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/lawn_mower.gif"/>
+   </ImageView>
+   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="175.0" layoutY="260.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/lawn_mower.gif"/>
+   </ImageView>
+   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="175.0" layoutY="400.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/lawn_mower.gif"/>
+   </ImageView>
+   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="175.0" layoutY="550.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/lawn_mower.gif"/>
+   </ImageView>
+   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="160.0" layoutY="700.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/lawn_mower.gif"/>
+   </ImageView>
+   <ImageView fitHeight="75.0" fitWidth="125.0" layoutX="1300.0" layoutY="10.0" onMouseClicked="#Pause"
+              onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
+      <Image url="@Resources/PauseButton.png"/>
+   </ImageView>
+   <GridPane layoutX="275.0" layoutY="110.0" prefHeight="750.0" prefWidth="1000.0">
+      <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true"
+                 GridPane.columnIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1"
+                 GridPane.rowIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1"
+                 GridPane.rowIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1"
+                 GridPane.rowIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1"
+                 GridPane.rowIndex="4"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true"
+                 GridPane.columnIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2"
+                 GridPane.rowIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2"
+                 GridPane.rowIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2"
+                 GridPane.rowIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2"
+                 GridPane.rowIndex="4"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true"
+                 GridPane.columnIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3"
+                 GridPane.rowIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3"
+                 GridPane.rowIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3"
+                 GridPane.rowIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3"
+                 GridPane.rowIndex="4"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true"
+                 GridPane.columnIndex="4"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4"
+                 GridPane.rowIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4"
+                 GridPane.rowIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4"
+                 GridPane.rowIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4"
+                 GridPane.rowIndex="4"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true"
+                 GridPane.columnIndex="5"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5"
+                 GridPane.rowIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5"
+                 GridPane.rowIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5"
+                 GridPane.rowIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5"
+                 GridPane.rowIndex="4"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true"
+                 GridPane.columnIndex="6"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6"
+                 GridPane.rowIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6"
+                 GridPane.rowIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6"
+                 GridPane.rowIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6"
+                 GridPane.rowIndex="4"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true"
+                 GridPane.columnIndex="7"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7"
+                 GridPane.rowIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7"
+                 GridPane.rowIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7"
+                 GridPane.rowIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7"
+                 GridPane.rowIndex="4"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true"
+                 GridPane.columnIndex="8"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8"
+                 GridPane.rowIndex="1"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8"
+                 GridPane.rowIndex="2"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8"
+                 GridPane.rowIndex="3"/>
+      <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8"
+                 GridPane.rowIndex="4"/>
+      <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1"
+                 GridPane.rowIndex="2">
+         <Image url="@Resources/pea_shooter.gif"/>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="175.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/lawn_mower.gif" />
-         </image>
+      <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2"
+                 GridPane.rowIndex="1">
+         <Image url="@Resources/walnut_full_life.gif"/>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="175.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/lawn_mower.gif" />
-         </image>
+      <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+         <Image url="@Resources/sun_flower.gif"/>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="175.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/lawn_mower.gif" />
-         </image>
+      <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1"
+                 GridPane.rowIndex="4">
+         <Image url="@Resources/sun_flower.gif"/>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="175.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/lawn_mower.gif" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="160.0" layoutY="700.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/lawn_mower.gif" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="75.0" fitWidth="125.0" layoutX="1300.0" layoutY="10.0" onMouseClicked="#Pause" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
-         <image>
-            <Image url="@Resources/PauseButton.png" />
-         </image>
-      </ImageView>
-      <GridPane layoutX="275.0" layoutY="110.0" prefHeight="750.0" prefWidth="1000.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-            <ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-            <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <image>
-                  <Image url="@Resources/pea_shooter.gif" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <image>
-                  <Image url="@Resources/walnut_full_life.gif" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-               <image>
-                  <Image url="@Resources/sun_flower.gif" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <image>
-                  <Image url="@Resources/sun_flower.gif" />
-               </image>
-            </ImageView>
-         </children>
-      </GridPane>
-      <ImageView fitHeight="100.0" fitWidth="500.0" layoutX="250.0" pickOnBounds="true">
-         <image>
-            <Image url="@Resources/Bar.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="270.0" layoutY="10.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
-         <image>
-            <Image url="@Resources/active_peashooter.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="360.0" layoutY="10.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
-         <image>
-            <Image url="@Resources/active_sunflower.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="10.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
-         <image>
-            <Image url="@Resources/active_walnut.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="10.0" pickOnBounds="true">
-         <image>
-            <Image url="@Resources/SunPanel.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="40.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/sun.gif" />
-         </image>
-      </ImageView>
-      <Label layoutX="50.0" layoutY="85.0" prefHeight="10.0" prefWidth="40.0" text="100">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="20.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="140.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/ShovelArea.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="150.0" layoutY="13.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/shovel.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="zombie_1" fitHeight="110.0" fitWidth="110.0" layoutX="1300.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/zombie_normal.gif" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="sun" fitHeight="60.0" fitWidth="60.0" layoutX="772.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/sun.gif" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="pea" fitHeight="20.0" fitWidth="20.0" layoutX="450.0" layoutY="465.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/Pea.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="950.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/ZombieBar.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="zombie_head" fitHeight="50.0" fitWidth="50.0" layoutX="1200.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Resources/ZombieHead.png" />
-         </image>
-      </ImageView>
-   </children>
+   </GridPane>
+   <ImageView fitHeight="100.0" fitWidth="500.0" layoutX="250.0" pickOnBounds="true">
+      <Image url="@Resources/Bar.png"/>
+   </ImageView>
+   <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="270.0" layoutY="10.0" onMouseExited="#RemoveGlow"
+              onMouseMoved="#Glow" pickOnBounds="true">
+      <Image url="@Resources/active_peashooter.png"/>
+   </ImageView>
+   <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="360.0" layoutY="10.0" onMouseExited="#RemoveGlow"
+              onMouseMoved="#Glow" pickOnBounds="true">
+      <Image url="@Resources/active_sunflower.png"/>
+   </ImageView>
+   <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="10.0" onMouseExited="#RemoveGlow"
+              onMouseMoved="#Glow" pickOnBounds="true">
+      <Image url="@Resources/active_walnut.png"/>
+   </ImageView>
+   <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="10.0" pickOnBounds="true">
+      <Image url="@Resources/SunPanel.png"/>
+   </ImageView>
+   <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="40.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@Resources/sun.gif"/>
+   </ImageView>
+   <Label layoutX="50.0" layoutY="85.0" prefHeight="10.0" prefWidth="40.0" text="100">
+      <font>
+         <Font name="Arial Rounded MT Bold" size="20.0"/>
+      </font>
+   </Label>
+   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="140.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@Resources/ShovelArea.png"/>
+   </ImageView>
+   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="150.0" layoutY="13.0" onMouseExited="#RemoveGlow"
+              onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
+      <Image url="@Resources/shovel.png"/>
+   </ImageView>
+   <ImageView fx:id="zombie_1" fitHeight="110.0" fitWidth="110.0" layoutX="1300.0" layoutY="275.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/zombie_normal.gif"/>
+   </ImageView>
+   <ImageView fx:id="sun" fitHeight="60.0" fitWidth="60.0" layoutX="772.0" layoutY="23.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/sun.gif"/>
+   </ImageView>
+   <ImageView fx:id="pea" fitHeight="20.0" fitWidth="20.0" layoutX="450.0" layoutY="465.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/Pea.png"/>
+   </ImageView>
+   <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="950.0" layoutY="10.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/ZombieBar.png"/>
+   </ImageView>
+   <ImageView fx:id="zombie_head" fitHeight="50.0" fitWidth="50.0" layoutX="1200.0" layoutY="20.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@Resources/ZombieHead.png"/>
+   </ImageView>
 </AnchorPane>
