@@ -141,12 +141,12 @@
    <ImageView fx:id="zombie_head" fitHeight="50.0" fitWidth="50.0" layoutX="1200.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/ZombieHead.png" />
    </ImageView>
-   <ImageView fx:id="zombie_3_1" fitHeight="110.0" fitWidth="110.0" layoutX="1330.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="Z_3_1" fitHeight="110.0" fitWidth="110.0" layoutX="1330.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@Resources/zombie_normal.gif" />
       </image>
    </ImageView>
-   <ImageView fx:id="zombie_4_1" fitHeight="110.0" fitWidth="110.0" layoutX="1340.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="Z_4_1" fitHeight="110.0" fitWidth="110.0" layoutX="1340.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@Resources/zombie_normal.gif" />
       </image>
@@ -156,7 +156,7 @@
          <Image url="@Resources/zombie_normal.gif" />
       </image>
    </ImageView>
-   <ImageView fx:id="zombie_1_1" fitHeight="110.0" fitWidth="110.0" layoutX="1310.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="Z_1_1" fitHeight="110.0" fitWidth="110.0" layoutX="1310.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@Resources/zombie_normal.gif" />
       </image>

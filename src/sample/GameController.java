@@ -1,15 +1,20 @@
 package sample;
 
+import javafx.animation.TranslateTransition;
+import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.util.Duration;
 
-public class GameController extends Click
+public class GameController extends Click implements Initializable
 {
     private Image Selection;
     private boolean ShovelSelected;
@@ -17,7 +22,7 @@ public class GameController extends Click
     private ArrayList<ArrayList<ImageView>> Zombies;
     private ArrayList<ArrayList<ImageView>> SunTokens;
     public ImageView R1C1= new ImageView(),R1C2= new ImageView(),R1C3= new ImageView(),R1C4= new ImageView(),R1C5= new ImageView(),R1C6= new ImageView(),R1C7= new ImageView(),R1C8= new ImageView(),R1C9= new ImageView(),R2C1= new ImageView(),R2C2= new ImageView(),R2C3= new ImageView(),R2C4= new ImageView(),R2C5= new ImageView(),R2C6= new ImageView(),R2C7= new ImageView(),R2C8= new ImageView(),R2C9= new ImageView(),R3C1= new ImageView(),R3C2= new ImageView(),R3C3= new ImageView(),R3C4= new ImageView(),R3C5= new ImageView(),R3C6= new ImageView(),R3C7= new ImageView(),R3C8= new ImageView(),R3C9= new ImageView(),R4C1= new ImageView(),R4C2= new ImageView(),R4C3= new ImageView(),R4C4= new ImageView(),R4C5= new ImageView(),R4C6= new ImageView(),R4C7= new ImageView(),R4C8= new ImageView(),R4C9= new ImageView(),R5C1= new ImageView(),R5C2= new ImageView(),R5C3= new ImageView(),R5C4= new ImageView(),R5C5= new ImageView(),R5C6= new ImageView(),R5C7= new ImageView(),R5C8= new ImageView(),R5C9= new ImageView();
-    public ImageView Z_1_1= new ImageView(),Z_2_1= new ImageView(),Z_3_1= new ImageView(),Z_4_1= new ImageView(),Z_5_1= new ImageView();
+    public ImageView Z_1_1= new ImageView(),Z_2_1= new ImageView(),Z_3_1= new ImageView(),Z_4_1= new ImageView(),Z_5_1= new ImageView(),Z_1_2= new ImageView(),Z_2_2= new ImageView(),Z_3_2= new ImageView(),Z_4_2= new ImageView(),Z_5_2= new ImageView(),Z_1_3= new ImageView(),Z_2_3= new ImageView(),Z_3_3= new ImageView(),Z_4_3= new ImageView(),Z_5_3= new ImageView();
     public ImageView S_2= new ImageView(),S_4= new ImageView(),S_6= new ImageView(),S_8= new ImageView();
 
     public GameController()
@@ -59,5 +64,11 @@ public class GameController extends Click
             { Tile.setImage(Selection);Tile.setFitHeight(80);Tile.setFitWidth(80);Tile.setPreserveRatio(true); }
             else if(ShovelSelected){ Tile.setImage(null); }
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+
     }
 }
