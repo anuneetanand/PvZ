@@ -1,6 +1,5 @@
 package sample;
 
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -26,13 +25,12 @@ public class GameController extends Click
 
     public void Place(MouseEvent mouseEvent)
     {
-        ImageView m = (ImageView) mouseEvent.getSource();
+        ImageView Tile = (ImageView) mouseEvent.getSource();
         if ((Selection!=null))
         {
-            if ((!ShovelSelected)&&(m.getImage()==null))
-            { m.setImage(Selection);m.setFitHeight(80);m.setFitWidth(80);m.setPreserveRatio(true); }
-            else
-            { m.setImage(null); }
+            if ((!ShovelSelected)&&(Tile.getImage()==null))
+            { Tile.setImage(Selection);Tile.setFitHeight(80);Tile.setFitWidth(80);Tile.setPreserveRatio(true); }
+            else if(ShovelSelected){ Tile.setImage(null); }
         }
     }
 }
