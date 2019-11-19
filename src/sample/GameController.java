@@ -3,37 +3,36 @@ package sample;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
-
 import javafx.fxml.FXML;
-import javafx.scene.input.TransferMode;
-
 
 public class GameController extends Click
 {
-
-    public ImageView abc;
-
+    private Image Selection = null;
+    private boolean ShovelSelected = false;
+    
     @FXML
     public void Pause(MouseEvent mouseEvent) throws IOException { Main.setRoot_PauseMenu(); }
 
-    public void HandleDragOver(DragEvent dragEvent)
+    public void Select(MouseEvent mouseEvent)
     {
-        if (dragEvent.getDragboard().hasFiles()){
-            dragEvent.acceptTransferModes(TransferMode.ANY);
-        }
+        String s = ((ImageView) mouseEvent.getSource()).getId();
+        if (s.equals("SelectPeaShooter")) { Selection = new Image("sample/Resources/pea_shooter.gif"); ShovelSelected = false; }
+        else if (s.equals("SelectSunflower")) {Selection = new Image("sample/Resources/sun_flower.gif"); ShovelSelected = false;}
+        else if (s.equals("SelectWallnut")){Selection = new Image("sample/Resources/wallnut.gif"); ShovelSelected = false;}
+        else if (s.equals("SelectShovel")){Selection = new Image("sample/Resources/shovel.png"); ShovelSelected=true;}
     }
 
-    public void HandleDropped(DragEvent dragEvent) throws FileNotFoundException {
-        List<File> files = dragEvent.getDragboard().getFiles();
-        Image I = new Image(new FileInputStream(files.get(0)));
-        abc.setImage(I);
+    public void Place(MouseEvent mouseEvent)
+    {
+        ImageView m = (ImageView) mouseEvent.getSource();
+        if ((Selection!=null))
+        {
+            if ((!ShovelSelected)&&(m.getImage()==null))
+            { m.setImage(Selection);m.setFitHeight(80);m.setFitWidth(80);m.setPreserveRatio(true); }
+            else
+            { m.setImage(null); }
+        }
     }
 }
