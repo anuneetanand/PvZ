@@ -18,7 +18,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-
 public class Main extends Application
 {
     private static Stage stage;

@@ -1,10 +1,9 @@
 package sample;
 
-public class LawnMower
+public class LawnMower extends Character
 {
-    int Row;
     boolean Used;
-    public LawnMower(int row) { Row = row;Used = false; }
+    public LawnMower(int x, int y) { super(100,x,y);Used = false; }
     public void Use() {Used = true;}
     public boolean isUsed() { return Used; }
 }
