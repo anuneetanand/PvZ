@@ -7,7 +7,9 @@ package sample;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -20,6 +22,7 @@ import java.net.MalformedURLException;
 
 public class Main extends Application
 {
+    public static AnchorPane A;
     private static Stage stage;
     private static MediaPlayer SoundPlayer;
     public static boolean MusicToggle  = true;
@@ -43,7 +46,7 @@ public class Main extends Application
     public void start(Stage primaryStage) throws  IOException
     {
         stage = primaryStage;
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("MainMenu.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("MainMenu.fxml"))));
         //stage.setFullScreen(true);
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
@@ -52,13 +55,13 @@ public class Main extends Application
         stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {if (KeyCode.ESCAPE == event.getCode()) {primaryStage.close();}});
     }
 
-    public static void setRoot_Main_Menu() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("MainMenu.fxml")))); stage.show(); }
-    public static void setRoot_Game() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Game.fxml")))); stage.show(); Main.Music();}
-    public static void setRoot_PauseMenu() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("PauseMenu.fxml")))); stage.show();}
-    public static void  setRoot_LeaderBoard() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LeaderBoard.fxml")))); stage.show(); }
-    public static void setRoot_Help() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Help.fxml")))); stage.show(); }
-    public static void setRoot_Level() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LevelMenu.fxml")))); stage.show(); }
-    public static void setRoot_Load() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LoadGame.fxml")))); stage.show(); }
+    public static void setRoot_Main_Menu() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("MainMenu.fxml"))));stage.show();}
+    public static void setRoot_Game() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Game.fxml"))));stage.show();Main.Music();}
+    public static void setRoot_PauseMenu() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("PauseMenu.fxml"))));stage.show(); }
+    public static void  setRoot_LeaderBoard() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LeaderBoard.fxml"))));stage.show(); }
+    public static void setRoot_Help() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Help.fxml"))));stage.show(); }
+    public static void setRoot_Level() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LevelMenu.fxml"))));stage.show(); }
+    public static void setRoot_Load() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LoadGame.fxml"))));stage.show(); }
     public static Stage getStage() { return stage; }
     public static void main(String[] args) { launch(args); }
 }

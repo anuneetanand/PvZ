@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameController">
+<AnchorPane fx:id="BG" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameController">
    <ImageView fitHeight="900.0" fitWidth="1440.0" pickOnBounds="true">
       <Image url="@Resources/BG_Game.jpg" />
    </ImageView>
    <ImageView fitHeight="75.0" fitWidth="125.0" layoutX="1300.0" layoutY="10.0" onMouseClicked="#Pause" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
       <Image url="@Resources/PauseButton.png" />
    </ImageView>
-   <GridPane layoutX="275.0" layoutY="110.0" prefHeight="750.0" prefWidth="1000.0">
+   <GridPane fx:id="Grid" layoutX="275.0" layoutY="110.0" prefHeight="750.0" prefWidth="1000.0">
       <columnConstraints>
          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -81,7 +79,7 @@
       <ImageView fx:id="R4C9" fitHeight="150.0" fitWidth="110.0" onMouseClicked="#Place" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3" />
       <ImageView fx:id="R5C9" fitHeight="150.0" fitWidth="110.0" onMouseClicked="#Place" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4" />
    </GridPane>
-   <ImageView fitHeight="100.0" fitWidth="650.0" layoutX="250.0" pickOnBounds="true">
+   <ImageView fitHeight="100.0" fitWidth="660.0" layoutX="250.0" pickOnBounds="true">
       <Image url="@Resources/Bar.png" />
    </ImageView>
    <ImageView fx:id="SelectPeaShooter" fitHeight="80.0" fitWidth="80.0" layoutX="270.0" layoutY="10.0" onMouseClicked="#Select" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
@@ -99,21 +97,13 @@
    <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="40.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/sun.gif" />
    </ImageView>
-   <Label layoutX="50.0" layoutY="85.0" prefHeight="10.0" prefWidth="40.0" text="0">
-      <font>
-         <Font name="Arial Rounded MT Bold" size="20.0" />
-      </font>
-   </Label>
    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="140.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/ShovelArea.png" />
    </ImageView>
    <ImageView fx:id="SelectShovel" fitHeight="75.0" fitWidth="75.0" layoutX="150.0" layoutY="13.0" onMouseClicked="#Select" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/shovel.png" />
    </ImageView>
-   <ImageView fitHeight="80.0" fitWidth="350.0" layoutX="930.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="80.0" fitWidth="350.0" layoutX="950.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/ZombieBar.png" />
-   </ImageView>
-   <ImageView fx:id="ZombieProgress" fitHeight="50.0" fitWidth="50.0" layoutX="1200.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@Resources/ZombieHead.png" />
    </ImageView>
 </AnchorPane>

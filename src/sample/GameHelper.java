@@ -1,10 +1,10 @@
 package sample;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,20 +17,32 @@ public class GameHelper
     public HashMap<Zombie,ImageView> Zombies;
     public HashMap<SunToken,ImageView> SunTokens;
     public HashMap<Projectile,ImageView> Bullets;
+    public Label STC;
+    public ImageView ZB;
     public double ZS;
     public int ZC;
+    public int ZH;
 
-    public GameHelper(double speed, int count)
+    public GameHelper(double speed, int count, int health, AnchorPane BG)
     {
         LawnMowers = new HashMap<>();
         Plants = new HashMap<>();
         Zombies = new HashMap<>();
         SunTokens = new HashMap<>();
         Bullets = new HashMap<>();
+        STC = new Label();
+        ZB = new ImageView("sample/Resources/ZombieHead.png");
         ZS = speed;
         ZC = count;
+        ZH = health;
     }
 
+    public void I_STC()
+    { STC.setLayoutX(50); STC.setLayoutY(85); STC.setPrefHeight(10); STC.setPrefWidth(40); STC.setText("0"); }
+
+    public void I_ZB()
+    { ZB.setX(1230); ZB.setY(20); ZB.setFitHeight(50); ZB.setFitWidth(50);}
+    
     public void I_LawnMower()
     {
         for(int i=0;i<5;i++)
@@ -52,6 +64,19 @@ public class GameHelper
         SunTokens.put(O,I);
     }
 
+    public void I_Zombie()
+    {
+        if (ZC>0)
+        {
+            int R = new Random().nextInt(5);
+            ImageView I = new ImageView("sample/Resources/zombie_normal.gif");
+            I.setX(1440);I.setY(125+(R*150));I.setFitHeight(100);I.setFitWidth(100);I.setPreserveRatio(true);
+            Zombie O = new Zombie(ZH,1440,(125+(R*150)),"Normal",10);
+            Zombies.put(O,I);
+            ZC--;
+        }
+    }
+
     public void Move_SunToken()
     {
         for (Map.Entry S : SunTokens.entrySet())
@@ -67,7 +92,11 @@ public class GameHelper
         }
     }
 
-    public void Collect_SunToken() { }
+    public void Collect_SunToken()
+    { STC.setText( String.valueOf(Integer.parseInt(STC.getText())+50)); }
+
+    public void Use_SunToken(int X)
+    { STC.setText( String.valueOf(Math.max(Integer.parseInt(STC.getText())-X,0))); }
 
     public void LZ_Collide(LawnMower LO,ImageView LI)
     {
@@ -76,7 +105,10 @@ public class GameHelper
             Zombie ZO = ((Zombie)Z.getKey());
             ImageView ZI = ((ImageView)Z.getValue());
             if ((ZO!=null) && (ZI!=null) && (ZO.getHealth()>0))
-            { if ((ZO.getPosition().getX()==LO.getPosition().getX()) && (ZO.getPosition().getY()==LO.getPosition().getY())) { Zombies.remove(ZO); } }
+            {
+                double dx = Math.abs(ZO.getPosition().getX()-LO.getPosition().getX());
+                double dy = Math.abs(ZO.getPosition().getY()-LO.getPosition().getY());
+                if ((dy==0) && (dx<50)) { Zombies.remove(ZO); } }
         }
     }
 

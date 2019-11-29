@@ -6,11 +6,16 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.util.HashMap;
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 public class GameController extends Click
 {
     public Image Selection;
     public boolean ShovelSelected;
+    public AnchorPane BG;
+    public GameHelper G;
+    public GridPane Grid;
 
     public GameController() { Selection = null;ShovelSelected = false;}
 
