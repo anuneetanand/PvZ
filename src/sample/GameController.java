@@ -1,42 +1,29 @@
 package sample;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
-import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ResourceBundle;
-
+import java.util.HashMap;
 import javafx.fxml.FXML;
-import javafx.util.Duration;
 
-public class GameController extends Click implements Initializable
+public class GameController extends Click
 {
     public Image Selection;
     public boolean ShovelSelected;
-    public ArrayList<ArrayList<ImageView>> Grid;
-    public ArrayList<ArrayList<ImageView>> Zombies;
-    public ArrayList<ArrayList<ImageView>> SunTokens;
-    public ImageView R1C1= new ImageView(),R1C2= new ImageView(),R1C3= new ImageView(),R1C4= new ImageView(),R1C5= new ImageView(),R1C6= new ImageView(),R1C7= new ImageView(),R1C8= new ImageView(),R1C9= new ImageView(),R2C1= new ImageView(),R2C2= new ImageView(),R2C3= new ImageView(),R2C4= new ImageView(),R2C5= new ImageView(),R2C6= new ImageView(),R2C7= new ImageView(),R2C8= new ImageView(),R2C9= new ImageView(),R3C1= new ImageView(),R3C2= new ImageView(),R3C3= new ImageView(),R3C4= new ImageView(),R3C5= new ImageView(),R3C6= new ImageView(),R3C7= new ImageView(),R3C8= new ImageView(),R3C9= new ImageView(),R4C1= new ImageView(),R4C2= new ImageView(),R4C3= new ImageView(),R4C4= new ImageView(),R4C5= new ImageView(),R4C6= new ImageView(),R4C7= new ImageView(),R4C8= new ImageView(),R4C9= new ImageView(),R5C1= new ImageView(),R5C2= new ImageView(),R5C3= new ImageView(),R5C4= new ImageView(),R5C5= new ImageView(),R5C6= new ImageView(),R5C7= new ImageView(),R5C8= new ImageView(),R5C9= new ImageView();
-    public ImageView Z_1_1= new ImageView(),Z_2_1= new ImageView(),Z_3_1= new ImageView(),Z_4_1= new ImageView(),Z_5_1= new ImageView(),Z_1_2= new ImageView(),Z_2_2= new ImageView(),Z_3_2= new ImageView(),Z_4_2= new ImageView(),Z_5_2= new ImageView(),Z_1_3= new ImageView(),Z_2_3= new ImageView(),Z_3_3= new ImageView(),Z_4_3= new ImageView(),Z_5_3= new ImageView();
-    public ImageView S_2= new ImageView(),S_4= new ImageView(),S_6= new ImageView(),S_8= new ImageView();
+    public HashMap<Plant,ImageView> Plants;
+    public HashMap<Zombie,ImageView> Zombies;
+    public HashMap<SunToken,ImageView> SunTokens;
+    public HashMap<Projectile,ImageView> Bullets;
 
     public GameController()
     {
-        ArrayList<ImageView>  B= new ArrayList<>(Arrays.asList(S_2,S_4));
-        System.out.println(B.get(0));
         Selection = null;
         ShovelSelected = false;
-        Grid = new ArrayList<ArrayList<ImageView>>();
-        Zombies = new ArrayList<ArrayList<ImageView>>();
-        SunTokens = new ArrayList<ArrayList<ImageView>>();
+        Plants = new HashMap<>();
+        Zombies = new HashMap<>();
+        SunTokens = new HashMap<>();
+        Bullets = new HashMap<>();
     }
 
     @FXML
@@ -64,25 +51,4 @@ public class GameController extends Click implements Initializable
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
-        Grid.add(new ArrayList<ImageView>(Arrays.asList(R1C1,R1C2,R1C3,R1C4,R1C5,R1C6,R1C7,R1C8,R1C9)));
-        Grid.add(new ArrayList<ImageView>(Arrays.asList(R2C1,R2C2,R2C3,R2C4,R2C5,R2C6,R2C7,R2C8,R2C9)));
-        Grid.add(new ArrayList<ImageView>(Arrays.asList(R3C1,R3C2,R3C3,R3C4,R3C5,R3C6,R3C7,R3C8,R3C9)));
-        Grid.add(new ArrayList<ImageView>(Arrays.asList(R4C1,R4C2,R4C3,R4C4,R4C5,R4C6,R4C7,R4C8,R4C9)));
-        Grid.add(new ArrayList<ImageView>(Arrays.asList(R5C1,R5C2,R5C3,R5C4,R5C5,R5C6,R5C7,R5C8,R5C9)));
-        Zombies.add(new ArrayList<ImageView>(Arrays.asList(Z_1_1,Z_2_1,Z_3_1,Z_4_1,Z_5_1)));
-        SunTokens.add(new ArrayList<ImageView>(Arrays.asList(S_2,S_4,S_6,S_8)));
-        ImageView Zombie;
-        Timeline timeline = new Timeline();
-        for (int i=0;i<5;i++)
-        {
-            Zombie = Zombies.get(0).get(i);
-            KeyValue xProperty = new KeyValue(Zombie.xProperty(), -1000);
-            KeyFrame keyframe = new KeyFrame(Duration.millis(15000), xProperty);
-            timeline.getKeyFrames().add(keyframe);
-        }
-        timeline.play();
-    }
 }

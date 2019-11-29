@@ -115,7 +115,7 @@
    <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="40.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/sun.gif" />
    </ImageView>
-   <Label layoutX="50.0" layoutY="85.0" prefHeight="10.0" prefWidth="40.0" text="100">
+   <Label layoutX="50.0" layoutY="85.0" prefHeight="10.0" prefWidth="40.0" text="0">
       <font>
          <Font name="Arial Rounded MT Bold" size="20.0" />
       </font>
@@ -138,15 +138,15 @@
    <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="950.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/ZombieBar.png" />
    </ImageView>
-   <ImageView fx:id="zombie_head" fitHeight="50.0" fitWidth="50.0" layoutX="1200.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="ZombieProgress" fitHeight="50.0" fitWidth="50.0" layoutX="1200.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/ZombieHead.png" />
    </ImageView>
-   <ImageView fx:id="Z_3_1" fitHeight="110.0" fitWidth="110.0" layoutX="1330.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="zombie_3_1" fitHeight="110.0" fitWidth="110.0" layoutX="1330.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@Resources/zombie_normal.gif" />
       </image>
    </ImageView>
-   <ImageView fx:id="Z_4_1" fitHeight="110.0" fitWidth="110.0" layoutX="1340.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="zombie_4_1" fitHeight="110.0" fitWidth="110.0" layoutX="1340.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@Resources/zombie_normal.gif" />
       </image>
