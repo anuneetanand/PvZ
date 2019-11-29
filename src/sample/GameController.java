@@ -11,20 +11,8 @@ public class GameController extends Click
 {
     public Image Selection;
     public boolean ShovelSelected;
-    public HashMap<Plant,ImageView> Plants;
-    public HashMap<Zombie,ImageView> Zombies;
-    public HashMap<SunToken,ImageView> SunTokens;
-    public HashMap<Projectile,ImageView> Bullets;
 
-    public GameController()
-    {
-        Selection = null;
-        ShovelSelected = false;
-        Plants = new HashMap<>();
-        Zombies = new HashMap<>();
-        SunTokens = new HashMap<>();
-        Bullets = new HashMap<>();
-    }
+    public GameController() { Selection = null;ShovelSelected = false;}
 
     @FXML
     public void Pause(MouseEvent mouseEvent) throws IOException { Main.setRoot_PauseMenu(); }
