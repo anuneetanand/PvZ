@@ -3,7 +3,6 @@ package sample;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
 import javafx.scene.effect.Glow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.TextAlignment;
@@ -18,7 +17,7 @@ public class GameHelper
     public HashMap<Plant,ImageView> Plants;
     public HashMap<Zombie,ImageView> Zombies;
     public HashMap<SunToken,ImageView> SunTokens;
-    public Label STC;public ImageView ZB;
+    public Label STC; public ImageView ZB;
     public ImageView Select_PS, Select_SF, Select_WN, Select_PM, Select_TN, Select_JP;
     public int C_PS,C_SF,C_WN,C_PM,C_TN,C_JP;
     public Glow On,Off;
@@ -101,15 +100,13 @@ public class GameHelper
         {
             if ((!ShovelSelected)&&(Tile.getImage()==null))
             {
-                double x = Tile.getLayoutX()+300; double y = Tile.getLayoutY()+125;
-                ImageView I = new ImageView(Selection.getImage());
-                I.setX(x); I.setY(y); I.setFitWidth(75); I.setFitHeight(75); I.setPreserveRatio(true);
-                A.BG.getChildren().add(I);
-                if(Selection.getId().equals("100"))
-                { Shooter O = new Shooter(100,x,y,"Shooter",100); A.BG.getChildren().add(O.getP().getB());  Plants.put(O,I);}
+                double x = Tile.getLayoutX(); double y = Tile.getLayoutY();
+                Tile.setFitWidth(75); Tile.setFitHeight(75); Tile.setPreserveRatio(true);
                 Tile.setImage(Selection.getImage());
+                if(Selection.getId().equals("100"))
+                { Shooter O = new Shooter(100,x+275,y+140,"Shooter",100); A.BG.getChildren().add(O.getP().getB());  Plants.put(O,Tile);}
             }
-            else if(ShovelSelected){ Tile.setImage(null); }
+            else if(ShovelSelected){ Tile.setImage(null); Tile.setFitHeight(150); Tile.setFitWidth(110); }
             Selection = null;
         }
     }
@@ -129,7 +126,6 @@ public class GameHelper
         {Select_PS.setEffect(On); C_PS=0;}
     }
 
-
     public void Move_Pea()
     {
         for(Map.Entry<Plant,ImageView> P : Plants.entrySet())
@@ -142,9 +138,9 @@ public class GameHelper
                 {
                     ImageView I = ((Shooter) PO).getP().getB();
                     if (I.getX()<1440) {I.setX(I.getX()+ZS);}
-                    else {I.setX(((Shooter) PO).getP().getPosition().getX());}
+                    else {I.setX(((Shooter) PO).getP().getPosition().getX()+50);}
+                    BZ_Collide(I);
                 }
-
             }
         }
     }
@@ -155,47 +151,70 @@ public class GameHelper
         {
             SunToken SO = S.getKey();
             ImageView SI = S.getValue();
-            if ((SO!=null)&&(SI!=null))
+            if ((SO!=null)&&(SI!=null)&&(SO.isActive()))
             {
-                if (SI.getOpacity()==0) { Collect_SunToken(); SunTokens.remove(SO);}
-                else if(SO.getPosition().getY()>900) { SunTokens.remove(SO); }
+                if (SI.getOpacity()==0) { Collect_SunToken(); SO.setActive(false); SI.setVisible(false); SI.setX(1000); SI.setY(0); SI.setFitWidth(1); SI.setFitHeight(1);}
+                else if(SO.getPosition().getY()>900) { SO.setActive(false); SI.setVisible(false); SI.setX(1000); SI.setY(0); SI.setFitWidth(1); SI.setFitHeight(1); }
                 else {SO.getPosition().setY(SO.getPosition().getY()+ZS*0.3);SI.setY(SI.getY()+ZS*0.3);}
             }
         }
     }
 
-    public void Collect_SunToken()
-    { STC.setText( String.valueOf(Integer.parseInt(STC.getText())+50)); }
+    public void Collect_SunToken() { STC.setText( String.valueOf(Integer.parseInt(STC.getText())+50)); }
 
-    public void Use_SunToken(int X)
-    { STC.setText( String.valueOf(Math.max(Integer.parseInt(STC.getText())-X,0))); }
+    public void Use_SunToken(int X) { STC.setText( String.valueOf(Math.max(Integer.parseInt(STC.getText())-X,0))); }
 
-    public void LZ_Collide(LawnMower LO,ImageView LI)
+    public void BZ_Collide(ImageView PI)
     {
         for (Map.Entry<Zombie,ImageView> Z : Zombies.entrySet())
         {
             Zombie ZO = Z.getKey();
             ImageView ZI = Z.getValue();
-            if ((ZO!=null) && (ZI!=null) && (ZO.getHealth()>0))
+            if ((ZO!=null) && (ZI!=null) && (ZO.isActive()))
             {
-                double dx = Math.abs(ZO.getPosition().getX()-LO.getPosition().getX());
-                double dy = Math.abs(ZO.getPosition().getY()-LO.getPosition().getY());
-                if ((dy==0) && (dx<50)) {ZI.setOpacity(0); Zombies.remove(ZO); } }
+                double dx = Math.abs(ZI.getX()-PI.getX());
+                double dy = Math.abs(ZI.getY()-PI.getY());
+                if ((dy<100) && (dx<50)) { ZI.setEffect(new Glow(1)); ZO.setHealth(ZO.getHealth()-20); PI.setX(PI.getX()+150); }
+                if(ZO.getHealth()<0) { ZO.setActive(false); A.BG.getChildren().remove(ZI); }
+            }
         }
     }
 
-    public void Move_LawnMower(Zombie ZO,ImageView ZI)              // Edit Speed & Collision Detection
+    public void LZ_Collide(ImageView LI)
+    {
+        for (Map.Entry<Zombie,ImageView> Z : Zombies.entrySet())
+        {
+            Zombie ZO = Z.getKey();
+            ImageView ZI = Z.getValue();
+            if ((ZO!=null) && (ZI!=null) && (ZO.isActive()))
+            {
+                double dx = Math.abs(ZI.getX()-LI.getX());
+                double dy = Math.abs(ZI.getY()-LI.getY());
+                if ((dy<50) && (dx<50)) { ZO.setActive(false); A.BG.getChildren().remove(ZI);}
+            }
+        }
+    }
+
+    public void Activate_LawnMower(ImageView ZI)              // Edit Speed & Collision Detection
     {
         for (Map.Entry<LawnMower,ImageView> L : LawnMowers.entrySet())
         {
             LawnMower LO =  L.getKey();
             ImageView LI =  L.getValue();
-            if (LO.getPosition().getY()==ZO.getPosition().getY())
+            if (!LO.isUsed()&&(LI.getY()==ZI.getY())) {LO.setRunning(true);}
+        }
+    }
+
+    public void Move_LawnMower()              // Edit Speed & Collision Detection
+    {
+        for (Map.Entry<LawnMower,ImageView> L : LawnMowers.entrySet())
+        {
+            LawnMower LO =  L.getKey();
+            ImageView LI =  L.getValue();
+            if (LO.isRunning())
             {
-                if (!LO.isUsed())
-                { LO.getPosition().setX(LO.getPosition().getX()+ZS*100); LI.setX(LI.getX()+ZS*100); LZ_Collide(LO,LI);}
-                else {  }
-                if (LO.getPosition().getX()>1300) {LO.Use();LI.setVisible(false);}
+                LO.getPosition().setX(LO.getPosition().getX()+ZS); LI.setX(LI.getX()+ZS); LZ_Collide(LI);
+                if (LO.getPosition().getX()>1300) {LO.Use(); LO.setActive(false);LO.setActive(false); A.BG.getChildren().remove(LI);}
             }
         }
     }
@@ -206,10 +225,10 @@ public class GameHelper
         {
             Zombie ZO = Z.getKey();
             ImageView ZI = Z.getValue();
-            if ((ZO!=null) && (ZI!=null))
+            if ((ZO!=null) && (ZI!=null) &&(ZO.isActive()))
             {
-                if (ZO.getHealth()<=0) { Zombies.remove(ZO); }
-                else if(ZO.getPosition().getX()<250) { Zombies.remove(ZO); Move_LawnMower(ZO,ZI); }
+                if (ZO.getHealth()<=0) { ZO.setActive(false); A.BG.getChildren().remove(ZI); }
+                else if(ZO.getPosition().getX()<250) { Activate_LawnMower(ZI); }
                 else if (!ZO.isBlocked()) { ZO.getPosition().setX(ZO.getPosition().getX()-ZS*0.1);ZI.setX(ZI.getX()-ZS*0.1);}
             }
         }
@@ -223,6 +242,7 @@ public class GameHelper
         Move_SunToken();
         Move_Zombie();
         Move_Pea();
+        Move_LawnMower();
         Manage_Inventory();
         if(Time%100==0) {I_SunToken(); I_Zombie();}
     }

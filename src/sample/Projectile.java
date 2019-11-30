@@ -11,7 +11,7 @@ public class Projectile
     private ImageView B;
 
     public Projectile(pair position)
-    { Position = position; Hit = false; B= new ImageView("sample/Resources/pea.png"); B.setX(position.getX()+50); B.setY(position.getY()+20); B.setFitHeight(20); B.setFitWidth(20); B.setEffect(new Glow(1));}
+    { Position = position; Hit = false; B= new ImageView("sample/Resources/pea.png"); B.setX(position.getX()+50); B.setY(position.getY()+25); B.setFitHeight(20); B.setFitWidth(20); B.setEffect(new Glow(1));}
 
     public pair getPosition() { return Position; }
     public void setPosition(pair position) { Position = position; }
