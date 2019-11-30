@@ -2,7 +2,10 @@ package sample;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
+import javafx.scene.effect.Glow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.TextAlignment;
 
 import java.util.*;
@@ -15,20 +18,27 @@ public class GameHelper
     public HashMap<Plant,ImageView> Plants;
     public HashMap<Zombie,ImageView> Zombies;
     public HashMap<SunToken,ImageView> SunTokens;
-    public HashMap<Projectile,ImageView> Bullets;
     public Label STC;public ImageView ZB;
-    public double ZS;public int ZC;public int ZH;public int Time;public long PT;
+    public ImageView Select_PS, Select_SF, Select_WN, Select_PM, Select_TN, Select_JP;
+    public int C_PS,C_SF,C_WN,C_PM,C_TN,C_JP;
+    public Glow On,Off;
+    public ImageView Selection;
+    public boolean ShovelSelected;
+    public int L; public double ZS;public int ZC;public int ZH;public int Time;public long PT;
 
-    public GameHelper(double speed, int count, int health, GameController a)
+    public GameHelper(int Level,double speed, int count, int health, GameController a)
     {
-        T = new AnimationTimer() 
+        T = new AnimationTimer()
         {@Override public void start() { PT = System.nanoTime();super.start();}
         @Override public void handle(long Now) { long ET = Now - PT;Execute();PT = ET; }};
-        LawnMowers = new HashMap<>();Plants = new HashMap<>();Zombies = new HashMap<>();SunTokens = new HashMap<>();Bullets = new HashMap<>();
+        LawnMowers = new HashMap<>();Plants = new HashMap<>();Zombies = new HashMap<>();SunTokens = new HashMap<>();
         STC = new Label();ZB = new ImageView("sample/Resources/ZombieHead.png");
-        ZS = speed;ZC = count;ZH = health;A = a;Time = 0;
+        ZS = speed;ZC = count;ZH = health;A = a;Time = 0;L = Level;
+        Selection = null; ShovelSelected = false;
+        C_PS=0;C_SF=0;C_WN=0;C_PM=0;C_TN=0;C_JP=0;
+        On = new Glow(1); Off = new Glow(0);
         //A.BG.getChildren().add();
-        I_STC();I_ZB();I_LawnMower();
+        I_STC();I_ZB();I_LawnMower();I_Inventory();
     }
 
     public void I_STC()
@@ -74,8 +84,70 @@ public class GameHelper
         }
     }
 
+    public void I_Inventory()
+    {
+        Select_PS = new ImageView("sample/Resources/active_peashooter.png");Select_PS.setFitHeight(80); Select_PS.setFitWidth(80); Select_PS.setX(270); Select_PS.setY(10);Select_PS.setId("100"); Select_PS.setEffect(Off); A.BG.getChildren().add(Select_PS);
+        Select_PS.setOnMouseClicked(this::Move_Inventory);
+        Select_SF = new ImageView("sample/Resources/active_sunflower.png");Select_SF.setFitHeight(80); Select_SF.setFitWidth(80); Select_SF.setX(360); Select_SF.setY(10);A.BG.getChildren().add(Select_SF);
+        if(L>1){Select_WN = new ImageView("sample/Resources/active_walnut.png");Select_WN.setFitHeight(80); Select_WN.setFitWidth(80); Select_WN.setX(450); Select_WN.setY(10);A.BG.getChildren().add(Select_WN);}
+        if(L>2){Select_PM = new ImageView();Select_PM.setFitHeight(80); Select_PM.setFitWidth(80); Select_PM.setX(540); Select_PM.setY(10);A.BG.getChildren().add(Select_PM);}
+        if(L>3){Select_TN = new ImageView();Select_TN.setFitHeight(80); Select_TN.setFitWidth(80); Select_TN.setX(630); Select_TN.setY(10);A.BG.getChildren().add(Select_TN);}
+        if(L>4){Select_JP = new ImageView();Select_JP.setFitHeight(80); Select_JP.setFitWidth(80); Select_JP.setX(720); Select_JP.setY(10);A.BG.getChildren().add(Select_JP);}
+    }
+
+    public void I_Plant(ImageView Tile)
+    {
+        if ((Selection!=null))
+        {
+            if ((!ShovelSelected)&&(Tile.getImage()==null))
+            {
+                double x = Tile.getLayoutX()+300; double y = Tile.getLayoutY()+125;
+                ImageView I = new ImageView(Selection.getImage());
+                I.setX(x); I.setY(y); I.setFitWidth(75); I.setFitHeight(75); I.setPreserveRatio(true);
+                A.BG.getChildren().add(I);
+                if(Selection.getId().equals("100"))
+                { Shooter O = new Shooter(100,x,y,"Shooter",100); A.BG.getChildren().add(O.getP().getB());  Plants.put(O,I);}
+                Tile.setImage(Selection.getImage());
+            }
+            else if(ShovelSelected){ Tile.setImage(null); }
+            Selection = null;
+        }
+    }
+
     public void Move_ZB()
     { if (ZB.getX()>950) { ZB.setX(ZB.getX()-(ZS*0.005));} else {} } // Write Game Winner Exception
+
+    public void Move_Inventory(MouseEvent e)
+    {
+        ImageView I = (ImageView) e.getSource();
+        if((I.getId().equals("100"))&& (I.getEffect().equals(On))) {Selection = new ImageView("sample/Resources/pea_shooter.gif"); Selection.setId("100");  I.setEffect(Off); Use_SunToken(100);}
+    }
+
+    public void Manage_Inventory()
+    {
+        if ((C_PS > 500) &&  ( Integer.parseInt(Select_PS.getId()) <= Integer.parseInt(STC.getText()) ))
+        {Select_PS.setEffect(On); C_PS=0;}
+    }
+
+
+    public void Move_Pea()
+    {
+        for(Map.Entry<Plant,ImageView> P : Plants.entrySet())
+        {
+            Plant PO = P.getKey();
+            ImageView PI = P.getValue();
+            if ((PO!=null)&&(PI!=null))
+            {
+                if (String.valueOf(PO.getClass().getName()).equals("sample.Shooter"))
+                {
+                    ImageView I = ((Shooter) PO).getP().getB();
+                    if (I.getX()<1440) {I.setX(I.getX()+ZS);}
+                    else {I.setX(((Shooter) PO).getP().getPosition().getX());}
+                }
+
+            }
+        }
+    }
 
     public void Move_SunToken()
     {
@@ -146,11 +218,13 @@ public class GameHelper
     public void Execute()
     {
         Time++;
+        C_PS++;C_SF++;C_WN++;C_PM++;C_TN++;C_JP++;
         Move_ZB();
         Move_SunToken();
         Move_Zombie();
-        //System.out.println(Time);
-        if(Time%1000==0) {I_SunToken(); I_Zombie();}
+        Move_Pea();
+        Manage_Inventory();
+        if(Time%100==0) {I_SunToken(); I_Zombie();}
     }
 
     public void Process()

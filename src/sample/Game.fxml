@@ -82,15 +82,6 @@
    <ImageView fitHeight="100.0" fitWidth="660.0" layoutX="250.0" pickOnBounds="true">
       <Image url="@Resources/Bar.png" />
    </ImageView>
-   <ImageView fx:id="SelectPeaShooter" fitHeight="80.0" fitWidth="80.0" layoutX="270.0" layoutY="10.0" onMouseClicked="#Select" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
-      <Image url="@Resources/active_peashooter.png" />
-   </ImageView>
-   <ImageView fx:id="SelectSunflower" fitHeight="80.0" fitWidth="80.0" layoutX="360.0" layoutY="10.0" onMouseClicked="#Select" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
-      <Image url="@Resources/active_sunflower.png" />
-   </ImageView>
-   <ImageView fx:id="SelectWallnut" fitHeight="80.0" fitWidth="80.0" layoutX="450.0" layoutY="10.0" onMouseClicked="#Select" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true">
-      <Image url="@Resources/active_walnut.png" />
-   </ImageView>
    <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="10.0" pickOnBounds="true">
       <Image url="@Resources/SunPanel.png" />
    </ImageView>
@@ -100,7 +91,7 @@
    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="140.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/ShovelArea.png" />
    </ImageView>
-   <ImageView fx:id="SelectShovel" fitHeight="75.0" fitWidth="75.0" layoutX="150.0" layoutY="13.0" onMouseClicked="#Select" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="SelectShovel" fitHeight="75.0" fitWidth="75.0" layoutX="150.0" layoutY="13.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/shovel.png" />
    </ImageView>
    <ImageView fitHeight="80.0" fitWidth="350.0" layoutX="950.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
