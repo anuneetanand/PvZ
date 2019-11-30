@@ -101,8 +101,8 @@ public class GameHelper
             if ((!ShovelSelected)&&(Tile.getImage()==null))
             {
                 double x = Tile.getLayoutX(); double y = Tile.getLayoutY();
-                Tile.setFitWidth(75); Tile.setFitHeight(75); Tile.setPreserveRatio(true);
                 Tile.setImage(Selection.getImage());
+                Tile.setFitWidth(75); Tile.setFitHeight(75); Tile.setPreserveRatio(true);
                 if(Selection.getId().equals("100"))
                 { Shooter O = new Shooter(100,x+275,y+140,"Shooter",100); A.BG.getChildren().add(O.getP().getB());  Plants.put(O,Tile);}
             }
@@ -138,7 +138,7 @@ public class GameHelper
                 {
                     ImageView I = ((Shooter) PO).getP().getB();
                     if (I.getX()<1440) {I.setX(I.getX()+ZS);}
-                    else {I.setX(((Shooter) PO).getP().getPosition().getX()+50);}
+                    else {I.setX(((Shooter) PO).getP().getPosition().getX()+50); I.setVisible(true);}
                     BZ_Collide(I);
                 }
             }
@@ -170,11 +170,11 @@ public class GameHelper
         {
             Zombie ZO = Z.getKey();
             ImageView ZI = Z.getValue();
-            if ((ZO!=null) && (ZI!=null) && (ZO.isActive()))
+            if ((ZO!=null) && (ZI!=null) && (ZO.isActive())&&(PI.isVisible()))
             {
                 double dx = Math.abs(ZI.getX()-PI.getX());
                 double dy = Math.abs(ZI.getY()-PI.getY());
-                if ((dy<100) && (dx<50)) { ZI.setEffect(new Glow(1)); ZO.setHealth(ZO.getHealth()-20); PI.setX(PI.getX()+150); }
+                if ((dy<100) && (dx<50)) { ZI.setEffect(new Glow(1)); ZO.setHealth(ZO.getHealth()-10); PI.setVisible(false); PI.setX(PI.getX()+150); }
                 if(ZO.getHealth()<0) { ZO.setActive(false); A.BG.getChildren().remove(ZI); }
             }
         }
@@ -195,7 +195,29 @@ public class GameHelper
         }
     }
 
-    public void Activate_LawnMower(ImageView ZI)              // Edit Speed & Collision Detection
+    public void PZ_Collide(Zombie ZO,ImageView ZI)
+    {
+        for (Map.Entry<Plant,ImageView> P : Plants.entrySet())
+        {
+            Plant PO =  P.getKey();
+            ImageView PI =  P.getValue();
+            if ((PO!=null) && (PI!=null) && (ZO.isActive())&&(PO.isActive()))
+            {
+                double dx = Math.abs(ZI.getX()-PI.getLayoutX()-275);
+                double dy = Math.abs(ZI.getY()-PI.getLayoutY()-140);
+                if ((dy<100) && (dx<100)) { ZO.setBlocked(true); Eat(ZO,ZI,PO,PI); }
+            }
+        }
+    }
+
+    public void Eat(Zombie ZO,ImageView ZI,Plant PO,ImageView PI)
+    {
+        PO.setHealth(PO.getHealth()-10);
+        if(PO.getHealth()<0) { ZO.setBlocked(false); PO.setActive(false); A.BG.getChildren().remove(PI);}
+    }
+
+
+    public void Activate_LawnMower(ImageView ZI)
     {
         for (Map.Entry<LawnMower,ImageView> L : LawnMowers.entrySet())
         {
@@ -227,6 +249,8 @@ public class GameHelper
             ImageView ZI = Z.getValue();
             if ((ZO!=null) && (ZI!=null) &&(ZO.isActive()))
             {
+                PZ_Collide(ZO,ZI);
+                System.out.println(ZO.isBlocked());
                 if (ZO.getHealth()<=0) { ZO.setActive(false); A.BG.getChildren().remove(ZI); }
                 else if(ZO.getPosition().getX()<250) { Activate_LawnMower(ZI); }
                 else if (!ZO.isBlocked()) { ZO.getPosition().setX(ZO.getPosition().getX()-ZS*0.1);ZI.setX(ZI.getX()-ZS*0.1);}

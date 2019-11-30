@@ -28,9 +28,6 @@ public class GameController extends Click
     public void Place(MouseEvent mouseEvent)
     {
         ImageView Tile = (ImageView) mouseEvent.getSource();
-        Tile.setFitHeight(1);
-        Tile.setFitWidth(1);
-        System.out.println();
         G.I_Plant(Tile);
     }
 
