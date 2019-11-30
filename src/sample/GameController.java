@@ -18,6 +18,7 @@ public class GameController extends Click
     @FXML
     public AnchorPane BG;
     public GameHelper G;
+    public ImageView SelectShovel;
 
     public GameController() { }
 
@@ -26,11 +27,10 @@ public class GameController extends Click
 
     @FXML
     public void Place(MouseEvent mouseEvent)
-    {
-        ImageView Tile = (ImageView) mouseEvent.getSource();
-        G.I_Plant(Tile);
-    }
+    { ImageView Tile = (ImageView) mouseEvent.getSource();G.I_Plant(Tile); }
 
     public void StartGame()
-    { G = new GameHelper(2,5,10,100,this); G.Process(); }
+    { G = new GameHelper(5,5,10,100,this); G.Process(); }
+
+    public void Dig(MouseEvent mouseEvent) { G.ShovelSelected=true; Place(mouseEvent);}
 }

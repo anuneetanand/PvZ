@@ -91,7 +91,7 @@
    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="140.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/ShovelArea.png" />
    </ImageView>
-   <ImageView fx:id="SelectShovel" fitHeight="75.0" fitWidth="75.0" layoutX="150.0" layoutY="13.0" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="SelectShovel" fitHeight="75.0" fitWidth="75.0" layoutX="150.0" layoutY="13.0" onMouseClicked="#Dig" onMouseExited="#RemoveGlow" onMouseMoved="#Glow" pickOnBounds="true" preserveRatio="true">
       <Image url="@Resources/shovel.png" />
    </ImageView>
    <ImageView fitHeight="80.0" fitWidth="350.0" layoutX="950.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
