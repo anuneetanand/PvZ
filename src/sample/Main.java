@@ -6,6 +6,7 @@ package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -22,7 +23,6 @@ import java.net.MalformedURLException;
 
 public class Main extends Application
 {
-    public static AnchorPane A;
     private static Stage stage;
     private static MediaPlayer SoundPlayer;
     public static boolean MusicToggle  = true;
@@ -56,7 +56,14 @@ public class Main extends Application
     }
 
     public static void setRoot_Main_Menu() throws IOException { stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("MainMenu.fxml"))));stage.show();}
-    public static void setRoot_Game() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Game.fxml"))));stage.show();Main.Music();}
+    public static void setRoot_Game() throws IOException
+    {
+        FXMLLoader L = new FXMLLoader(Main.class.getResource("Game.fxml"));
+        Parent R = (Parent) L.load();
+        GameController GC = L.getController();
+        stage.setScene(new Scene(R));stage.show();Main.Music();
+        GC.StartGame();
+    }
     public static void setRoot_PauseMenu() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("PauseMenu.fxml"))));stage.show(); }
     public static void  setRoot_LeaderBoard() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LeaderBoard.fxml"))));stage.show(); }
     public static void setRoot_Help() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Help.fxml"))));stage.show(); }
@@ -64,4 +71,5 @@ public class Main extends Application
     public static void setRoot_Load() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LoadGame.fxml"))));stage.show(); }
     public static Stage getStage() { return stage; }
     public static void main(String[] args) { launch(args); }
+
 }

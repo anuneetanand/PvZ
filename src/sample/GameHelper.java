@@ -1,17 +1,16 @@
 package sample;
 
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.TextAlignment;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class GameHelper
 {
+    public Timer T;
+    public TimerTask D;
+    public GameController A;
     public HashMap<LawnMower, ImageView> LawnMowers;
     public HashMap<Plant,ImageView> Plants;
     public HashMap<Zombie,ImageView> Zombies;
@@ -22,9 +21,12 @@ public class GameHelper
     public double ZS;
     public int ZC;
     public int ZH;
+    public int Time;
 
-    public GameHelper(double speed, int count, int health, AnchorPane BG)
+    public GameHelper(double speed, int count, int health, GameController a)
     {
+        T = new Timer();
+        D = new TaskData();
         LawnMowers = new HashMap<>();
         Plants = new HashMap<>();
         Zombies = new HashMap<>();
@@ -35,20 +37,27 @@ public class GameHelper
         ZS = speed;
         ZC = count;
         ZH = health;
+        A = a;
+        Time = 0;
+        //A.BG.getChildren().add();
+        I_STC();
+        I_ZB();
+        I_LawnMower();
     }
 
     public void I_STC()
-    { STC.setLayoutX(50); STC.setLayoutY(85); STC.setPrefHeight(10); STC.setPrefWidth(40); STC.setText("0"); }
+    { STC.setLayoutX(50); STC.setLayoutY(85); STC.setPrefHeight(20); STC.setPrefWidth(40); STC.setText("0"); STC.setTextAlignment(TextAlignment.CENTER); A.BG.getChildren().add(STC); }
 
     public void I_ZB()
-    { ZB.setX(1230); ZB.setY(20); ZB.setFitHeight(50); ZB.setFitWidth(50);}
-    
+    { ZB.setX(1230); ZB.setY(20); ZB.setFitHeight(50); ZB.setFitWidth(50);A.BG.getChildren().add(ZB); }
+
     public void I_LawnMower()
     {
         for(int i=0;i<5;i++)
         {
             ImageView I = new ImageView("sample/Resources/lawn_mower.gif");
             I.setX(175);I.setY(125+(i*150));I.setFitHeight(100);I.setFitWidth(100);
+            A.BG.getChildren().add(I);
             LawnMower O = new LawnMower(175,125+(i*150));
             LawnMowers.put(O,I);
         }
@@ -58,7 +67,8 @@ public class GameHelper
     {
         int R = new Random().nextInt(8);
         ImageView I = new ImageView("sample/Resources/sun.gif");
-        I.setX(300+(R*110));I.setY(0);I.setFitHeight(80);I.setFitWidth(80);
+        I.setX(300+(R*110));I.setY(0);I.setFitHeight(75);I.setFitWidth(75);
+        A.BG.getChildren().add(I);
         I.setOnMouseClicked(e -> I.setOpacity(0));
         SunToken O = new SunToken(new pair(300+(R*110),0));
         SunTokens.put(O,I);
@@ -71,11 +81,14 @@ public class GameHelper
             int R = new Random().nextInt(5);
             ImageView I = new ImageView("sample/Resources/zombie_normal.gif");
             I.setX(1440);I.setY(125+(R*150));I.setFitHeight(100);I.setFitWidth(100);I.setPreserveRatio(true);
+            A.BG.getChildren().add(I);
             Zombie O = new Zombie(ZH,1440,(125+(R*150)),"Normal",10);
             Zombies.put(O,I);
             ZC--;
         }
     }
+
+    public void Move_ZB() { if (ZB.getX()>950) { ZB.setX(ZB.getX()-(ZS*0.01));} else {} } // Write Game Winner Exception
 
     public void Move_SunToken()
     {
@@ -112,7 +125,7 @@ public class GameHelper
         }
     }
 
-    public void Move_LawnMower(Zombie ZO,ImageView ZI) throws GameOverException
+    public void Move_LawnMower(Zombie ZO,ImageView ZI)
     {
         for (Map.Entry L : LawnMowers.entrySet())
         {
@@ -121,24 +134,39 @@ public class GameHelper
             if (LO.getPosition().getY()==ZO.getPosition().getY())
             {
                 if (!LO.isUsed()) { LO.getPosition().setX(LO.getPosition().getX()+ZS*100); LI.setX(LI.getX()+ZS*100); LZ_Collide(LO,LI);}
-                else { throw new GameOverException(); }
+                else {  }
                 if (LO.getPosition().getX()>1440) {LO.Use();LI.setVisible(false);}
             }
         }
     }
 
-    public void  Move_Zombie() throws GameOverException
+    public void  Move_Zombie()
     {
-        for (Map.Entry Z : Zombies.entrySet())
+        for (Map.Entry<Zombie, ImageView> Z : Zombies.entrySet())
         {
             Zombie ZO = ((Zombie)Z.getKey());
             ImageView ZI = ((ImageView)Z.getValue());
             if ((ZO!=null) && (ZI!=null))
             {
-                if (ZO.getHealth()<=0) { Zombies.remove(ZO);}
-                else if(ZO.getPosition().getX()<250) { Move_LawnMower(ZO,ZI); Zombies.remove(ZO);}
+                System.out.println((ZO.getPosition().getX()));
+                if (ZO.getHealth()<=0) { Zombies.remove(ZO); }
+                else if(ZO.getPosition().getX()<250) { Move_LawnMower(ZO,ZI);Zombies.remove(ZO); }
                 else if (!ZO.isBlocked()) { ZO.getPosition().setX(ZO.getPosition().getX()-ZS);ZI.setX(ZI.getX()-ZS);}
             }
         }
     }
+
+    public void Execute()
+    {
+        Time++;
+        Move_ZB();
+        if(Time%1000==0) {I_SunToken();}
+    }
+
+    public void Process()
+    { T.schedule(D,1000,10); }
+
+    class TaskData extends TimerTask
+    { @Override public void run() { Execute(); }}
 }
+
