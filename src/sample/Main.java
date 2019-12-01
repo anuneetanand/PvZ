@@ -26,6 +26,7 @@ public class Main extends Application
     private static Stage stage;
     private static MediaPlayer SoundPlayer;
     public static boolean MusicToggle  = true;
+    public static int Level=5;
 
     private static  void LoadMusic()
     {
@@ -62,13 +63,20 @@ public class Main extends Application
         Parent R = (Parent) L.load();
         GameController GC = L.getController();
         stage.setScene(new Scene(R));stage.show();Main.Music();
-        GC.StartGame();
+        if(Level==1) GC.StartGame(1,5,10,100);
+        else if(Level==2) GC.StartGame(2,5,20,100);
+        else if(Level==3) GC.StartGame(3,10,30,100);
+        else if(Level==4) GC.StartGame(4,15,40,100);
+        else if(Level==5) GC.StartGame(5,15,50,100);
     }
     public static void setRoot_PauseMenu() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("PauseMenu.fxml"))));stage.show(); }
     public static void  setRoot_LeaderBoard() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LeaderBoard.fxml"))));stage.show(); }
     public static void setRoot_Help() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Help.fxml"))));stage.show(); }
     public static void setRoot_Level() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LevelMenu.fxml"))));stage.show(); }
     public static void setRoot_Load() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("LoadGame.fxml"))));stage.show(); }
+    public static void setRoot_GO() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("GameOver.fxml"))));stage.show(); }
+    public static void setRoot_GW() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("Won.fxml"))));stage.show(); }
+    public static void setRoot_NL() throws IOException {stage.setScene(new Scene(FXMLLoader.load(Main.class.getResource("NextLevel.fxml"))));stage.show(); }
     public static Stage getStage() { return stage; }
     public static void main(String[] args) { launch(args); }
 

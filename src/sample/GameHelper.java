@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.TextAlignment;
 
+import java.io.IOException;
 import java.security.PublicKey;
 import java.util.*;
 
@@ -16,6 +17,7 @@ public class GameHelper
 {
     public AnimationTimer T;
     public GameController A;
+    public int AZ;
     public HashMap<LawnMower, ImageView> LawnMowers;
     public HashMap<Plant,ImageView> Plants;
     public HashMap<Zombie,ImageView> Zombies;
@@ -37,7 +39,7 @@ public class GameHelper
         STC = new Label();ZB = new ImageView("sample/Resources/ZombieHead.png");
         ZS = speed;ZC = count;ZH = health;A = a;Time = 0;L = Level;
         Selection = null; ShovelSelected = false;
-        C_PS=0;C_SF=0;C_WN=0;C_PM=0;C_TN=0;C_JP=0;
+        C_PS=0;C_SF=0;C_WN=0;C_PM=0;C_TN=0;C_JP=0; AZ=ZC;
         On = new Glow(0.5); Off = new Glow(0);
         I_STC();I_ZB();I_LawnMower();I_Inventory();
     }
@@ -164,7 +166,7 @@ public class GameHelper
     {
         ImageView I = (ImageView) e.getSource();
         if(!I.getId().equals("SelectShovel")){ ShovelSelected = false; }
-        if ( (I.getId().equals("100"))&& (I.getEffect().equals(On)) ) {System.out.println("lol"); Selection = new ImageView("sample/Resources/pea_shooter.gif"); Selection.setId("PS");  I.setEffect(Off); Use_SunToken(100);C_PS=0;}
+        if ( (I.getId().equals("100"))&& (I.getEffect().equals(On)) ) { Selection = new ImageView("sample/Resources/pea_shooter.gif"); Selection.setId("PS");  I.setEffect(Off); Use_SunToken(100);C_PS=0;}
         else if((I.getId().equals("200"))&& (I.getEffect().equals(On))) {Selection = new ImageView("sample/Resources/sun_flower.gif"); Selection.setId("SF");  I.setEffect(Off); Use_SunToken(200);C_SF=0;}
         else if((I.getId().equals("50"))&& (I.getEffect().equals(On))) {Selection = new ImageView("sample/Resources/wallnut.gif"); Selection.setId("WN");  I.setEffect(Off); Use_SunToken(50);C_WN=0;}
         else if((I.getId().equals("150"))&& (I.getEffect().equals(On))) {Selection = new ImageView("sample/Resources/PotatoMine_Activated.gif"); Selection.setId("PM");  I.setEffect(Off); Use_SunToken(150);C_PM=0;}
@@ -237,7 +239,7 @@ public class GameHelper
                 double dx = Math.abs(ZI.getX()-PI.getX());
                 double dy = Math.abs(ZI.getY()-PI.getY());
                 if ((dy<100) && (dx<50)) { ZI.setEffect(new Glow(1)); ZO.setHealth(ZO.getHealth()-10); PI.setVisible(false); PI.setX(PI.getX()+150); }
-                if(ZO.getHealth()<0) { ZO.setActive(false); A.BG.getChildren().remove(ZI); }
+                if(ZO.getHealth()<0) { ZO.setActive(false); A.BG.getChildren().remove(ZI); AZ--; }
             }
         }
     }
@@ -252,7 +254,7 @@ public class GameHelper
             {
                 double dx = Math.abs(ZI.getX()-LI.getX());
                 double dy = Math.abs(ZI.getY()-LI.getY());
-                if ((dy<50) && (dx<50)) { ZO.setActive(false); A.BG.getChildren().remove(ZI);}
+                if ((dy<50) && (dx<50)) { ZO.setActive(false); A.BG.getChildren().remove(ZI); AZ--;}
             }
         }
     }
@@ -305,17 +307,17 @@ public class GameHelper
         }
     }
 
-    public void Activate_LawnMower(ImageView ZI)
-    {
+    public void Activate_LawnMower(ImageView ZI) {
         for (Map.Entry<LawnMower,ImageView> L : LawnMowers.entrySet())
         {
             LawnMower LO =  L.getKey();
             ImageView LI =  L.getValue();
-            if (!LO.isUsed()&&(LI.getY()==ZI.getY())) {LO.setRunning(true);}
+            if((LO.getPosition().getY()==ZI.getY()))
+            { if (!LO.isUsed()) {LO.setRunning(true);} else {try{Main.setRoot_GO();}catch (IOException i){}}}
         }
     }
 
-    public void Move_LawnMower()              // Edit Speed & Collision Detection
+    public void Move_LawnMower()
     {
         for (Map.Entry<LawnMower,ImageView> L : LawnMowers.entrySet())
         {
@@ -345,6 +347,15 @@ public class GameHelper
         }
     }
 
+    public void CheckWin() throws IOException
+    {
+        if((AZ==0)&&(ZC==0)&&(ZB.getX())<1000)
+        {
+            Main.Level++;
+            if(Main.Level==6){Main.setRoot_GW(); Main.Level=1;}
+            else {Main.setRoot_NL();}
+        }
+    }
     public void Execute()
     {
         Time++;
@@ -355,8 +366,9 @@ public class GameHelper
         Move_Pea();
         Move_LawnMower();
         Manage_Inventory();
-        if(Time%250==0) {I_SunToken(); ProduceSun();}
-        if(Time%750==0){ I_Zombie();}
+        if (Time>1000){ try{CheckWin();} catch( IOException i){}}
+        if(Time%500==0) {I_SunToken(); ProduceSun();}
+        if(Time%1000==0){ I_Zombie();}
     }
 
     public void Process()

@@ -29,8 +29,8 @@ public class GameController extends Click
     public void Place(MouseEvent mouseEvent)
     { ImageView Tile = (ImageView) mouseEvent.getSource();G.I_Plant(Tile); }
 
-    public void StartGame()
-    { G = new GameHelper(4,5,10,100,this); G.Process(); }
+    public void StartGame(int x,int y,int c, int h)
+    { G = new GameHelper(x,y,c,h,this); G.Process(); }
 
     public void Dig(MouseEvent mouseEvent) { G.ShovelSelected=true; Place(mouseEvent);}
 }
