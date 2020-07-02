@@ -12,9 +12,17 @@ Execute the JAR file.
 
 ## Dependancies
 
- -  Java 11.0.2
+ - Java 11.0.2
  - JavaFX 11
  - Minimum Screen Resolution : 1280x720
+ 
+## Features
+
+- Multiple levels offering various levels of difficulty.
+- Ability to pause and resume the game.
+- User data is saved and high scores are shown on Leaderboard.
+- Backgroun music, Sound effects and Pretty animations.
+- Help Menu
 
 ## Preview
 
