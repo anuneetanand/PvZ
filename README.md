@@ -29,3 +29,7 @@ Execute the JAR file.
 ![enter image description here](https://github.com/anuneetanand/Images/blob/master/PVZ/PvZ-2.png?raw=true)
 
 ![enter image description here](https://github.com/anuneetanand/Images/blob/master/PVZ/PvZ-3.png?raw=true)
+
+## Developed By 
+- Anuneet Anand (github.com/anuneetanand)
+- Naman Tyagi (github.com/Naman18055)
