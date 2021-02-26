@@ -1,14 +1,62 @@
 # Plants Vs. Zombies
 
-***An enticing and amusing game for both macOS & Windows systems, inspired by a game with the same name. The game was developed on Java platform and the GUI was designed using JavaFX. AnimationTimer and Object Transitions were used to make the animations as smooth as possible.***
+An amusing game for both macOS & Windows systems, inspired by a game with the same name. The game was developed on Java platform and the GUI was designed using JavaFX.
 
-![enter image description here](https://github.com/anuneetanand/Images/blob/master/PVZ/PvZ-1.png?raw=true)
+![Home Screen](https://github.com/anuneetanand/Images/blob/master/PVZ/PvZ-1.png?raw=true)
+
+## Folder Structure
+
+```
+├── docs
+│   ├── UML.pdf
+│   └── UseCase.pdf
+├── src
+│   └── sample
+│       ├── Resources
+│       ├── Barrier.java
+│       ├── Bomb.java
+│       ├── Character.java
+│       ├── Click.java
+│       ├── Game.fxml
+│       ├── GameController.java
+│       ├── GameHelper.java
+│       ├── GameOver.fxml
+│       ├── GameOverController.java
+│       ├── GameOverException.java
+│       ├── Help.fxml
+│       ├── HelpController.java
+│       ├── LawnMower.java
+│       ├── LeaderBoard.fxml
+│       ├── LeaderBoardController.java
+│       ├── LevelMenu.fxml
+│       ├── LevelMenuController.java
+│       ├── LoadGame.fxml
+│       ├── LoadGameController.java
+│       ├── Main.java
+│       ├── MainMenu.fxml
+│       ├── MainMenuController.java
+│       ├── NLController.java
+│       ├── NextLevel.fxml
+│       ├── PauseMenu.fxml
+│       ├── PauseMenuController.java
+│       ├── Plant.java
+│       ├── Projectile.java
+│       ├── Shooter.java
+│       ├── SunToken.java
+│       ├── SunTokenGenerator.java
+│       ├── WinController.java
+│       ├── Won.fxml
+│       ├── Zombie.java
+│       └── pair.java
+├── LICENSE
+└── README.md
+```
 
 ## Build Project
 
-Clone the reposirtory.
-Build the project as JavaFX app with required dependancies into a JAR file.
-Execute the JAR file.
+- Clone the reposirtory.
+- Build the project as JavaFX app with required dependancies into a JAR file.
+- Execute the JAR file.
 
 ## Dependancies
 
@@ -21,8 +69,8 @@ Execute the JAR file.
 - Multiple levels offering various levels of difficulty.
 - Ability to pause and resume the game.
 - User data is saved and high scores are shown on Leaderboard.
-- Backgroun music, Sound effects and Pretty animations.
-- Help Menu
+- Background music, sound effects and fluid animations.
+- Tutorial
 
 ## Preview
 
@@ -30,6 +78,5 @@ Execute the JAR file.
 
 ![enter image description here](https://github.com/anuneetanand/Images/blob/master/PVZ/PvZ-3.png?raw=true)
 
-## Developed By 
-- Anuneet Anand (github.com/anuneetanand)
-- Naman Tyagi (github.com/Naman18055)
+## Collaborator
+[Naman Tyagi](github.com/Naman18055)
