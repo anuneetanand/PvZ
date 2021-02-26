@@ -52,31 +52,25 @@ An amusing game for both macOS & Windows systems, inspired by a game with the sa
 └── README.md
 ```
 
-## Build Project
+## Build Project :wrench:
 
 - Clone the reposirtory.
 - Build the project as JavaFX app with required dependancies into a JAR file.
 - Execute the JAR file.
 
-## Dependancies
+## Dependancies :gear:
 
  - Java 11.0.2
  - JavaFX 11
  - Minimum Screen Resolution : 1280x720
  
-## Features
+## Features :star:
 
 - Multiple levels offering various levels of difficulty.
 - Ability to pause and resume the game.
 - User data is saved and high scores are shown on Leaderboard.
 - Background music, sound effects and fluid animations.
 - Tutorial
-
-## Preview
-
-![enter image description here](https://github.com/anuneetanand/Images/blob/master/PVZ/PvZ-2.png?raw=true)
-
-![enter image description here](https://github.com/anuneetanand/Images/blob/master/PVZ/PvZ-3.png?raw=true)
 
 ## Collaborator
 [Naman Tyagi](github.com/Naman18055)
