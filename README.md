@@ -1,8 +1,8 @@
 # Plants Vs. Zombies
 
-An amusing game for both macOS & Windows systems, inspired by a game with the same name. The game was developed on Java platform and the GUI was designed using JavaFX.
+An amusing game for both macOS & Windows systems, inspired by a mobile game with the same name. The game was developed on Java platform and the GUI was designed using JavaFX.
 
-![Home Screen](https://github.com/anuneetanand/Images/blob/master/PVZ/PvZ-1.png?raw=true)
+<img width="1440" alt="PvZ-1" src="https://user-images.githubusercontent.com/42066451/118356365-94b9f680-b592-11eb-94c4-e909c9c17a32.png">
 
 ## Folder Structure
 
